@@ -56,13 +56,21 @@ namespace SUNDBBACKUP
 
                 string folderPath = txtFolderPath.Text.Trim();
                 string conString = string.Format($"Server={server};User ID={username};Password={password}");
+                try
+                {
+                    BackupService backup = new BackupService(conString, folderPath);
 
-                BackupService backup = new BackupService(conString, folderPath);
+                    await backup.BackupAllUserDatabasesAsync();
 
-                await backup.BackupAllUserDatabasesAsync();
+
+                    MessageBox.Show("Backup ");
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Something had happened. Please check." + Environment.NewLine + ex.Message);
+                }
                 
-
-
 
             }
 
@@ -74,7 +82,7 @@ namespace SUNDBBACKUP
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
             if (folderBrowser.ShowDialog() == DialogResult.OK)
             {
-                folder = folderBrowser.SelectedPath;
+                txtFolderPath.Text = folderBrowser.SelectedPath;
             }
         }
     }

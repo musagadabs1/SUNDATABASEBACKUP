@@ -149,7 +149,6 @@
             this.txtFolderPath.Name = "txtFolderPath";
             this.txtFolderPath.Size = new System.Drawing.Size(163, 26);
             this.txtFolderPath.TabIndex = 10;
-            this.txtFolderPath.UseSystemPasswordChar = true;
             // 
             // button1
             // 
