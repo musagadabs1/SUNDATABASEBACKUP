@@ -18,13 +18,17 @@ namespace SUNDBBACKUP
             _connectionString = connectionString;
             _backupFolderFullPath = backupFolderFullPath;
         }
-        private void BackupAllUserDatabases()
+        public async Task BackupAllUserDatabasesAsync(/*IProgress<int> progress*/)
         {
             try
             {
-                foreach (string database in GetAllUserDatabases())
+                foreach (string database in await GetAllUserDatabasesAsync())
                 {
-                    BackupDatabase(database);
+                    //int count=0;
+                  await  BackupDatabaseAsync(database);
+
+                    //progress.Report(count);
+                    //count++;
                 }
             }
             catch (Exception ex)
@@ -34,7 +38,7 @@ namespace SUNDBBACKUP
             }
             
         }
-        public async Task BackupDatabaseAsync(string databaseName)
+        private async Task BackupDatabaseAsync(string databaseName)
         {
             try
             {

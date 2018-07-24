@@ -26,7 +26,7 @@ namespace SUNDBBACKUP
             txtusername.Text = Properties.Settings.Default.Username;
         }
 
-        private void btnBackup_Click(object sender, EventArgs e)
+        private async void btnBackup_Click(object sender, EventArgs e)
         {
             string errorMsg = null;
             if (string.IsNullOrEmpty(txtPassword.Text))
@@ -50,9 +50,32 @@ namespace SUNDBBACKUP
                 Properties.Settings.Default.Password = txtPassword.Text.Trim();
                 Properties.Settings.Default.Username = txtusername.Text.Trim();
                 Properties.Settings.Default.Servername = txtServername.Text.Trim();
+                string server = txtServername.Text.Trim();
+                string password = txtPassword.Text.Trim();
+                string username = txtusername.Text.Trim();
+
+                string folderPath = txtFolderPath.Text.Trim();
+                string conString = string.Format($"Server={server};User ID={username};Password={password}");
+
+                BackupService backup = new BackupService(conString, folderPath);
+
+                await backup.BackupAllUserDatabasesAsync();
+                
+
+
 
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string folder = string.Empty;
+            FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+            if (folderBrowser.ShowDialog() == DialogResult.OK)
+            {
+                folder = folderBrowser.SelectedPath;
+            }
         }
     }
 }

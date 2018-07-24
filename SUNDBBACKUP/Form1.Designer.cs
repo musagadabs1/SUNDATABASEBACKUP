@@ -38,7 +38,7 @@
             this.btnTestConnection = new System.Windows.Forms.Button();
             this.chkSaveLogin = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtFolderPath = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
@@ -142,14 +142,14 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Folder Path:";
             // 
-            // textBox1
+            // txtFolderPath
             // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(109, 178);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 26);
-            this.textBox1.TabIndex = 10;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.txtFolderPath.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFolderPath.Location = new System.Drawing.Point(109, 178);
+            this.txtFolderPath.Name = "txtFolderPath";
+            this.txtFolderPath.Size = new System.Drawing.Size(163, 26);
+            this.txtFolderPath.TabIndex = 10;
+            this.txtFolderPath.UseSystemPasswordChar = true;
             // 
             // button1
             // 
@@ -161,6 +161,7 @@
             this.button1.TabIndex = 11;
             this.button1.Text = "Browse...";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // progressBar1
             // 
@@ -177,7 +178,7 @@
             this.ClientSize = new System.Drawing.Size(389, 294);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtFolderPath);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.chkSaveLogin);
             this.Controls.Add(this.btnTestConnection);
@@ -209,7 +210,7 @@
         private System.Windows.Forms.Button btnTestConnection;
         private System.Windows.Forms.CheckBox chkSaveLogin;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtFolderPath;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ProgressBar progressBar1;
     }
