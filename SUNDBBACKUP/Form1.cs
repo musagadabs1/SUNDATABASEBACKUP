@@ -28,10 +28,22 @@ namespace SUNDBBACKUP
 
         private void btnBackup_Click(object sender, EventArgs e)
         {
-            string errorMsg = string.Empty;
+            string errorMsg = null;
             if (string.IsNullOrEmpty(txtPassword.Text))
             {
-                
+                errorMsg += "User Password is required." + Environment.NewLine;
+            }
+            if (string.IsNullOrEmpty(txtServername.Text))
+            {
+                errorMsg += "Database Servername is required." + Environment.NewLine;
+            }
+            if (string.IsNullOrEmpty(txtusername.Text))
+            {
+                errorMsg += "Database username is required." + Environment.NewLine;
+            }
+            if (errorMsg != null)
+            {
+                MessageBox.Show("Please correct the following error(s) to continue " + Environment.NewLine + errorMsg);
             }
             if (chkSaveLogin.Checked)
             {
@@ -40,6 +52,7 @@ namespace SUNDBBACKUP
                 Properties.Settings.Default.Servername = txtServername.Text.Trim();
 
             }
+
         }
     }
 }
