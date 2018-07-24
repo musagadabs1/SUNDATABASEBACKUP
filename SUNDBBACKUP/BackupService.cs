@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace SUNDBBACKUP
 {
@@ -33,7 +34,7 @@ namespace SUNDBBACKUP
             }
             
         }
-        public void BackupDatabase(string databaseName)
+        public async Task BackupDatabaseAsync(string databaseName)
         {
             try
             {
@@ -43,8 +44,8 @@ namespace SUNDBBACKUP
                     var query = string.Format("BACKUP DATABASE [{0}] TO DISK = '{1}'", databaseName, filePath);
                     using (var command = new SqlCommand(query, connection))
                     {
-                        connection.Open();
-                        command.ExecuteNonQuery();
+                     await Task.Run(() =>  connection.Open());
+                      await Task.Run(() =>  command.ExecuteNonQuery());
                     }
                 }
             }
@@ -72,17 +73,17 @@ namespace SUNDBBACKUP
             //throw new NotImplementedException();
         }
 
-        private IEnumerable<string> GetAllUserDatabases()
+        private async Task<IEnumerable<string>> GetAllUserDatabasesAsync()
         {
             try
             {
                 var databases = new List<string>();
-                DataTable databasesTable;
+                DataTable databasesTable=null;
 
                 using (var connection = new SqlConnection(_connectionString))
                 {
-                    connection.Open();
-                    databasesTable = connection.GetSchema("Databases");
+                   await Task.Run(() => connection.Open());
+                    await Task.Run(() => databasesTable = connection.GetSchema("Databases"));
                     connection.Close();
                 }
                 foreach (DataRow row in databasesTable.Rows)
