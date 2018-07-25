@@ -50,7 +50,8 @@ namespace SUNDBBACKUP
                 Properties.Settings.Default.Password = txtPassword.Text.Trim();
                 Properties.Settings.Default.Username = txtusername.Text.Trim();
                 Properties.Settings.Default.Servername = txtServername.Text.Trim();
-                string server = txtServername.Text.Trim();
+            }
+            string server = txtServername.Text.Trim();
                 string password = txtPassword.Text.Trim();
                 string username = txtusername.Text.Trim();
                 txtCount.Visible = true;
@@ -89,9 +90,6 @@ namespace SUNDBBACKUP
                     progressBar1.Visible = false;
                 }
                 
-
-            }
-
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -25,7 +25,7 @@ namespace SUNDBBACKUP.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("172.16.12.11\\SQLEXPRESS01")]
         public string Servername {
             get {
                 return ((string)(this["Servername"]));
@@ -37,7 +37,7 @@ namespace SUNDBBACKUP.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("software")]
         public string Username {
             get {
                 return ((string)(this["Username"]));
@@ -49,7 +49,7 @@ namespace SUNDBBACKUP.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DelFirMENA$idea")]
         public string Password {
             get {
                 return ((string)(this["Password"]));
