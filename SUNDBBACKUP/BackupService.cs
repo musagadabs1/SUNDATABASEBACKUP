@@ -18,17 +18,26 @@ namespace SUNDBBACKUP
             _connectionString = connectionString;
             _backupFolderFullPath = backupFolderFullPath;
         }
-        public async Task BackupAllUserDatabasesAsync(/*IProgress<int> progress*/)
+        public async Task BackupAllUserDatabasesAsync(IProgress<ProgressReport> progress)
         {
             try
             {
+                int count = 0;
                 foreach (string database in await GetAllUserDatabasesAsync())
                 {
+
+                    if (progress !=null)
+                    {
+                        var args = new ProgressReport();
+                        args.ProgressPercentage = (count / 20) * 100;
+                        args.Text = count.ToString();
+                        progress.Report(args);
+                    }
                     //int count=0;
                   await  BackupDatabaseAsync(database);
 
                     //progress.Report(count);
-                    //count++;
+                    count++;
                 }
             }
             catch (Exception ex)

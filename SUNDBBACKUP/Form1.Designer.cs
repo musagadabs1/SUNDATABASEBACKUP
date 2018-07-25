@@ -41,6 +41,7 @@
             this.txtFolderPath = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.txtCount = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnBackup
@@ -50,7 +51,7 @@
             this.btnBackup.ForeColor = System.Drawing.Color.White;
             this.btnBackup.Location = new System.Drawing.Point(88, 244);
             this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Size = new System.Drawing.Size(242, 38);
+            this.btnBackup.Size = new System.Drawing.Size(253, 38);
             this.btnBackup.TabIndex = 0;
             this.btnBackup.Text = "Backup";
             this.btnBackup.UseVisualStyleBackColor = false;
@@ -164,10 +165,18 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(84, 210);
+            this.progressBar1.Location = new System.Drawing.Point(88, 210);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(253, 28);
+            this.progressBar1.Size = new System.Drawing.Size(108, 28);
             this.progressBar1.TabIndex = 12;
+            // 
+            // txtCount
+            // 
+            this.txtCount.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCount.Location = new System.Drawing.Point(202, 212);
+            this.txtCount.Name = "txtCount";
+            this.txtCount.Size = new System.Drawing.Size(139, 26);
+            this.txtCount.TabIndex = 13;
             // 
             // Form1
             // 
@@ -175,6 +184,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(389, 294);
+            this.Controls.Add(this.txtCount);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtFolderPath);
@@ -212,6 +222,7 @@
         private System.Windows.Forms.TextBox txtFolderPath;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.TextBox txtCount;
     }
 }
 

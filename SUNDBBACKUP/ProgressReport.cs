@@ -8,7 +8,7 @@ namespace SUNDBBACKUP
 {
     public class ProgressReport
     {
-        public int CountForProgressBar { get; set; }
-        public int Count { get; set; }
+        public int ProgressPercentage { get; set; }
+        public string Text { get; set; }
     }
 }

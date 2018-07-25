@@ -54,13 +54,22 @@ namespace SUNDBBACKUP
                 string password = txtPassword.Text.Trim();
                 string username = txtusername.Text.Trim();
 
+                var progress = new Progress<ProgressReport>();
+                progress.ProgressChanged += (s, x) =>
+                {
+                    progressBar1.Value = x.ProgressPercentage;
+                    txtCount.Text = $"{x.Text} database(s) backed up";
+
+                };
+
                 string folderPath = txtFolderPath.Text.Trim();
                 string conString = string.Format($"Server={server};User ID={username};Password={password}");
                 try
                 {
                     BackupService backup = new BackupService(conString, folderPath);
+                    //var progress = new Progress<ProgressReport>();
 
-                    await backup.BackupAllUserDatabasesAsync();
+                    await backup.BackupAllUserDatabasesAsync(progress);
 
 
                     MessageBox.Show("Backup successfully.");
