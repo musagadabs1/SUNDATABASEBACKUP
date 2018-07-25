@@ -63,7 +63,7 @@ namespace SUNDBBACKUP
                     await backup.BackupAllUserDatabasesAsync();
 
 
-                    MessageBox.Show("Backup ");
+                    MessageBox.Show("Backup successfully.");
                 }
                 catch (Exception ex)
                 {

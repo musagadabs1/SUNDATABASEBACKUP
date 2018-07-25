@@ -65,7 +65,7 @@ namespace SUNDBBACKUP
         {
             try
             {
-                string filename = string.Format("{0}-{1}", databaseName, DateTime.Now.ToString("yyyy-MM-dd"));
+                string filename = string.Format("{0}-{1}.bak", databaseName, DateTime.Now.ToString("yyyy-MM-dd"));
 
                 return Path.Combine(_backupFolderFullPath, filename);
             }
