@@ -169,6 +169,7 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(108, 28);
             this.progressBar1.TabIndex = 12;
+            this.progressBar1.Visible = false;
             // 
             // txtCount
             // 
@@ -177,6 +178,7 @@
             this.txtCount.Name = "txtCount";
             this.txtCount.Size = new System.Drawing.Size(139, 26);
             this.txtCount.TabIndex = 13;
+            this.txtCount.Visible = false;
             // 
             // Form1
             // 

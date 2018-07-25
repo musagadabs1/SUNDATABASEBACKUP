@@ -53,7 +53,8 @@ namespace SUNDBBACKUP
                 string server = txtServername.Text.Trim();
                 string password = txtPassword.Text.Trim();
                 string username = txtusername.Text.Trim();
-
+                txtCount.Visible = true;
+                progressBar1.Visible = true;
                 var progress = new Progress<ProgressReport>();
                 progress.ProgressChanged += (s, x) =>
                 {
@@ -73,11 +74,19 @@ namespace SUNDBBACKUP
 
 
                     MessageBox.Show("Backup successfully.");
+                    txtCount.Visible = false;
+                    progressBar1.Visible = false;
+                    txtFolderPath.Clear();
+                    txtPassword.Clear();
+                    txtServername.Clear();
+                    txtusername.Clear();
                 }
                 catch (Exception ex)
                 {
 
                     MessageBox.Show("Something had happened. Please check." + Environment.NewLine + ex.Message);
+                    txtCount.Visible = false;
+                    progressBar1.Visible = false;
                 }
                 
 
